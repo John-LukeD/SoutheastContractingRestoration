@@ -1,0 +1,278 @@
+/*Variables*/
+* {
+    --primary-color: #ffcc00;
+    --primary-bg-color: white;
+    --accent-text-color: #ffba00;
+    /* Did not use pop-color, maybe incorporate later maybe not, get Mr.Austin opinion */
+    --pop-color: #1b27d0;
+}
+
+
+/*General Styling*/
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    
+    font-family:'Courier New', Courier, monospace;
+    line-height: 1.5;
+    background: var(--primary-bg-color);
+    color: black;
+}
+
+p {
+    font-size: larger;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+/*Header Area Styles*/
+header {
+    background-color: var(--primary-color);
+    color: #000;
+}
+
+nav > ul {
+    display: flex;
+    justify-content: space-evenly;
+    padding: .5rem;
+}
+
+nav li {
+    font-size: 1.5rem;
+}
+
+nav a {
+    color: #000;
+}
+
+a:hover, active{
+    border-bottom: solid;
+    color: #fff;
+}
+
+
+/*Main Content Area Styles*/
+main {
+    background-color: var(--primary-bg-color);
+    max-width: 90%;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-bottom: 4rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+}
+
+h2 {
+    color: var(--accent-text-color);
+    margin-top: 1rem;
+    margin-bottom: 0.2rem;
+    text-decoration: underline;
+    text-underline-offset: 7px;
+}
+
+img {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+
+/*Footer Area Styles*/
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-content: center;
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+.font-sm {
+    font-size: 1rem;
+}
+
+
+/* Home page styling */
+.homepage-container {
+    display: flex;
+    margin: auto;
+    padding: 20px;
+}
+
+.home-text-content {
+    padding-left: 20px;
+    margin: 20px;
+}
+
+.home-text-content h1 {
+    padding-top: 15px;
+}
+
+.home-images {
+    margin-top: 25px;
+}
+
+.home-images p {
+    text-align: center;
+    font-weight: bolder;
+    color: var(--accent-text-color);
+}
+
+
+/* Our Work styling */
+.project-container {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 1rem;
+}
+
+.project-images {
+    gap: 15px;
+}
+
+.project-description {
+    flex: 2;
+}
+
+
+/* Contact US styling */
+.contact-us-container {
+    display:flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.contact-us-left {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-right: 30px;
+    min-width: 50%;
+}
+
+.contact-us a:hover {
+    color: var(--primary-color);
+} 
+
+.inquiry {
+    margin-top: 40px;
+}
+
+.inquiry textarea {
+    height: 100px;
+}
+
+.inquiry input, textarea {
+    width: 350px;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.inquiry input[type="submit"]:hover {
+    background-color: var(--primary-color);
+}
+
+
+/* Listings styling */
+.listings-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.listing-card {
+    padding: 15px;
+    border-radius: 10px;
+    background-color: var(--primary-bg-color);
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.listing-card img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.view-button {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    font-size: large;
+    margin: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+.view-button:hover {
+    background-color: var(--primary-color);
+    color:  black;
+}
+
+.listing-address {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+
+/* Listing Styling */
+.listing-container {
+    width: 60%;
+    margin: auto;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.main-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.other-images {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.other-images img {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.other-images img:hover {
+    transform:scale(1.2)
+}
