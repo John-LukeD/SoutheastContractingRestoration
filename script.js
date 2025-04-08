@@ -1,18 +1,30 @@
 
 'use strict';
 
+//Our Work JS
+const root = document.documentElement;
+const btn1 = document.querySelector('.one');
+const btn2 = document.querySelector('.two');
+const btn3 = document.querySelector('.three');
+//Listing JS
 const leftBtn = document.querySelector('.left');
 const rightBtn = document.querySelector('.right');
-
 const carouselItems = Array.from(document.querySelectorAll('.carousel-item'));
 const navItems = Array.from(document.querySelectorAll('.nav-item'));
 const CAROUSEL_SIZE = carouselItems.length;
-
 const nav = document.querySelector('.carousel-nav');
-
-leftBtn.addEventListener('click', swipe);
-rightBtn.addEventListener('click', swipe);
-nav.addEventListener('click', dotClicked);
+//Our Work
+if (btn1 && btn2 && btn3) {
+    btn1.addEventListener('click', buttonClick);
+    btn2.addEventListener('click', buttonClick);
+    btn3.addEventListener('click', buttonClick);
+}
+//Listing JS
+if (leftBtn && rightBtn && nav) {
+    leftBtn.addEventListener('click', swipe);
+    rightBtn.addEventListener('click', swipe);
+    nav.addEventListener('click', dotClicked);
+}
 
 function swipe(e){
     const currentCarouselItem = document.querySelector('.carousel-item.active');
@@ -57,4 +69,28 @@ function dotClicked(e) {
         currentNavItem.classList.remove('active');
         currentCarouselItem.classList.remove('active');
     }
+}
+
+//Our Work JS
+function buttonClick (e) {
+    //get the event target, which is the button being clicked, store it in a variable named btn.
+    let btn = e.target;
+    //toggle the open class on btn, and similarly, toggle the open class on the corresponding content element, i.e., the accordion-content element below btn. (Hint: in the DOM tree, the content element is the next sibling element of the button)
+    btn.classList.toggle('open');
+    const content = btn.nextElementSibling;
+    content.classList.toggle('open');
+
+    //set --content-height to the scrollHeight property of the content element.
+    root.style.setProperty('--content-height', btn.nextElementSibling.scrollHeight + 'px');
+
+    //loop through all the buttons, for each button if not btn and classlist contains open class, remove
+    //open class from class list and remove open class from the cooresponding content element
+    const buttonItems = Array.from(document.querySelectorAll('button'));
+    buttonItems.forEach(button => {
+        if (button !== btn && button.classList.contains('open')) {
+           button.classList.remove('open'); 
+           const contentElement = button.nextElementSibling;
+           contentElement.classList.remove('open');
+        }
+    });
 }

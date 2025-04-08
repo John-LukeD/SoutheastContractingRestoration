@@ -1,3 +1,6 @@
+:root {
+    --content-height: 0px;
+}
 /*Variables*/
 * {
     --primary-color: #ffcc00;
@@ -150,9 +153,68 @@ footer {
 }
 
 .project-description {
-    flex: 2;
+    flex: 1;
 }
 
+.accordion {
+    margin: 1rem auto;
+    line-height: 1.5;
+}
+
+.accordion-label {
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 1rem 0.5rem;
+    text-align: left;
+    background-color: var(--primary-color);
+    opacity: 0.6;
+    border: none;
+    color: black;
+    position: relative;
+}
+
+.accordion-label:hover {
+    cursor: pointer;
+}
+
+.accordion-content {
+    margin-bottom: 0.5rem;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+}
+
+.accordion-content.open {
+    height: var(--content-height);
+    overflow: auto;
+}
+
+.accordion-label.open {
+    opacity: 1;
+}
+
+/* add effects */
+.accordion-label {
+    transition: 500ms opacity ease-out;
+}
+
+.accordion-content {
+    transition: 500ms height ease-in-out;
+}
+
+/* icons */
+.accordion-label::after {
+    content: '+';
+    position: absolute;
+    right: 1rem;
+    font-size: 1.2rem;
+}
+
+.accordion-label.open::after {
+    content: '-';
+    font-size: 1.5rem;
+}
 
 /* Contact US styling */
 .contact-us-container {
