@@ -306,6 +306,17 @@ footer {
     margin-top: 15px;
 }
 
+/* tooltip */
+.tooltip-box {
+    position: absolute;
+    background-color: black;
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 15px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
 
 /* Listing Styling */
 .listing-container {

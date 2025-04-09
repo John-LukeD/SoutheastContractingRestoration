@@ -1,25 +1,15 @@
 
 'use strict';
 
-//Our Work JS
-const root = document.documentElement;
-const btn1 = document.querySelector('.one');
-const btn2 = document.querySelector('.two');
-const btn3 = document.querySelector('.three');
-//Listing JS
+//Listing page carousel below
 const leftBtn = document.querySelector('.left');
 const rightBtn = document.querySelector('.right');
 const carouselItems = Array.from(document.querySelectorAll('.carousel-item'));
 const navItems = Array.from(document.querySelectorAll('.nav-item'));
 const CAROUSEL_SIZE = carouselItems.length;
 const nav = document.querySelector('.carousel-nav');
-//Our Work
-if (btn1 && btn2 && btn3) {
-    btn1.addEventListener('click', buttonClick);
-    btn2.addEventListener('click', buttonClick);
-    btn3.addEventListener('click', buttonClick);
-}
-//Listing JS
+
+//create event listeners if we are on the correct web page
 if (leftBtn && rightBtn && nav) {
     leftBtn.addEventListener('click', swipe);
     rightBtn.addEventListener('click', swipe);
@@ -32,6 +22,7 @@ function swipe(e){
 
     let nextIndex;
 
+    //index logic for changing img
     if(e.currentTarget.classList.contains('left')){
         if(currentIndex === 0){
             nextIndex = CAROUSEL_SIZE - 1;
@@ -49,6 +40,7 @@ function swipe(e){
         }
     }
 
+    //switch image
     carouselItems[nextIndex].classList.add('active');
     navItems[nextIndex].classList.add('active');
     currentCarouselItem.classList.remove('active');
@@ -71,20 +63,31 @@ function dotClicked(e) {
     }
 }
 
-//Our Work JS
+//Our Work acordion below
+const root = document.documentElement;
+const btn1 = document.querySelector('.one');
+const btn2 = document.querySelector('.two');
+const btn3 = document.querySelector('.three');
+
+if (btn1 && btn2 && btn3) {
+    btn1.addEventListener('click', buttonClick);
+    btn2.addEventListener('click', buttonClick);
+    btn3.addEventListener('click', buttonClick);
+}
+
 function buttonClick (e) {
-    //get the event target, which is the button being clicked, store it in a variable named btn.
+    //get the button
     let btn = e.target;
-    //toggle the open class on btn, and similarly, toggle the open class on the corresponding content element, i.e., the accordion-content element below btn. (Hint: in the DOM tree, the content element is the next sibling element of the button)
+    //toggle the open class on btn and content element
     btn.classList.toggle('open');
     const content = btn.nextElementSibling;
     content.classList.toggle('open');
 
-    //set --content-height to the scrollHeight property of the content element.
+    //set --content-height to the scrollHeight property of the content
     root.style.setProperty('--content-height', btn.nextElementSibling.scrollHeight + 'px');
 
     //loop through all the buttons, for each button if not btn and classlist contains open class, remove
-    //open class from class list and remove open class from the cooresponding content element
+    //open class from class list and remove open class from content
     const buttonItems = Array.from(document.querySelectorAll('button'));
     buttonItems.forEach(button => {
         if (button !== btn && button.classList.contains('open')) {
@@ -93,4 +96,33 @@ function buttonClick (e) {
            contentElement.classList.remove('open');
         }
     });
+}
+
+//listings ToolTip below
+const tooltipText = 'Click me to view more';
+const imgs = document.querySelectorAll('.tooltip-img');
+  
+if (imgs.length > 0) {
+    // Create tooltip element
+    const tooltip = document.createElement('div');
+    tooltip.className = 'tooltip-box';
+    tooltip.textContent = tooltipText;
+    document.body.appendChild(tooltip);
+   
+    //for each img in imgs, add eventlisteners
+    imgs.forEach((img) => {
+        //if hovering over the img, set opacity to 1
+        img.addEventListener('mouseover', () => {
+          tooltip.style.opacity = '1';
+        });
+        //follow the cursor
+        img.addEventListener('mousemove', (e) => {
+          tooltip.style.left = `${e.pageX + 10}px`;
+          tooltip.style.top = `${e.pageY - 30}px`;
+        });
+        //if not hovering set opacity to 0
+        img.addEventListener('mouseleave', () => {
+          tooltip.style.opacity = '0';
+        });
+      });
 }
