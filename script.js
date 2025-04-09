@@ -117,8 +117,8 @@ if (imgs.length > 0) {
         });
         //follow the cursor
         img.addEventListener('mousemove', (e) => {
-          tooltip.style.left = `${e.pageX + 10}px`;
-          tooltip.style.top = `${e.pageY - 30}px`;
+          tooltip.style.left = `${e.pageX + 5}px`;
+          tooltip.style.top = `${e.pageY - 35}px`;
         });
         //if not hovering set opacity to 0
         img.addEventListener('mouseleave', () => {
